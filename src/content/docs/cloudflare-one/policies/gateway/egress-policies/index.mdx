@@ -21,7 +21,7 @@ Cloudflare does not publish WARP egress IP ranges. WARP egress IPs are not docum
 
 ## Load balancing
 
-Gateway traffic that does not match an egress policy will egress from the closest Cloudflare data center with a default Gateway egress IP. If there are two data centers of equal distance from the user, Gateway will split the traffic between the two data centers, and the load balancer will retain the same user selection and egress IP regardless of data center. This logic applies to both the default Cloudflare egress IPs and any dedicated egress IPs.
+When using either the default Cloudflare egress IPs or any dedicated egress IPs, Gateway traffic that does not match an egress policy will egress from the closest Cloudflare data center with a default Gateway egress IP. If there are two data centers of equal distance from the user, Gateway will split the traffic between the two data centers, and the load balancer will retain the same user selection and egress IP regardless of data center.
 
 ## Force IP version
 
@@ -89,7 +89,10 @@ Gateway matches egress traffic against the following selectors, or criteria:
 
 ### Destination IP
 
-<Render file="gateway/selectors/destination-ip" />
+<Render
+	file="gateway/selectors/destination-ip"
+	params={{ APIendpoint: "net.dst.ip" }}
+/>
 
 ### Destination Port
 
@@ -142,7 +145,10 @@ The country of the user making the request. <Render file="gateway/selectors/sour
 
 ### Source IP
 
-<Render file="gateway/selectors/source-ip-net" />
+<Render
+	file="gateway/selectors/source-ip"
+	params={{ APIendpoint: "net.src.ip" }}
+/>
 
 ### Source Port
 
@@ -253,22 +259,25 @@ Additionally, to use these selectors to filter traffic onboarded with WARP, you 
 
 2. In your WARP [device profile](/cloudflare-one/connections/connect-devices/warp/configure-warp/device-profiles/), configure your [Split Tunnel](/cloudflare-one/connections/connect-devices/warp/configure-warp/route-traffic/split-tunnels/) depending on the mode:
 
-   <Tabs> <TabItem label="Exclude IPs and domains">
+   <Tabs>
 
+   <TabItem label="Exclude IPs and domains">
    1. [Remove the route](/cloudflare-one/connections/connect-devices/warp/configure-warp/route-traffic/split-tunnels/#remove-a-route) to the IP address `100.64.0.0/10` from your Split Tunnel exclude list.
-   2. [Add routes](/cloudflare-one/connections/connect-devices/warp/configure-warp/route-traffic/split-tunnels/#add-a-route) to exclude the following IP addresses:
-      - `100.64.0.0/12`
+   2. [Add routes](/cloudflare-one/connections/connect-devices/warp/configure-warp/route-traffic/split-tunnels/#add-a-route) to exclude the following IP addresses: - `100.64.0.0/12`
       - `100.81.0.0/16`
       - `100.82.0.0/15`
       - `100.84.0.0/14`
       - `100.88.0.0/13`
       - `100.96.0.0/11`
 
-   </TabItem> <TabItem label="Include IPs and domains">
+   </TabItem>
 
+   <TabItem label="Include IPs and domains">
    1. Add the required [Zero Trust domains](/cloudflare-one/connections/connect-devices/warp/configure-warp/route-traffic/split-tunnels/#cloudflare-zero-trust-domains) or [IP addresses](/cloudflare-one/connections/connect-devices/warp/configure-warp/route-traffic/split-tunnels/#cloudflare-zero-trust-ip-addresses) to your Split Tunnel include list.
    2. [Add a route](/cloudflare-one/connections/connect-devices/warp/configure-warp/route-traffic/split-tunnels/#add-a-route) to include the IP address `100.80.0.0/16`.
 
-   </TabItem> </Tabs>
+   </TabItem>
+
+   </Tabs>
 
 The WARP client must be set to _Gateway with WARP_ mode for traffic affected by these selectors to route correctly.
