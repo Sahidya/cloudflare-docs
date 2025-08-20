@@ -21,7 +21,7 @@
 # AI
 
 /src/content/docs/agents/ @irvinebroque @rita3ko @elithrar @thomasgauvin @threepointone @cloudflare/pcx-technical-writing
-/src/content/docs/ai-gateway/ @kathayl @mchenco @kodster28 @cloudflare/pcx-technical-writing
+/src/content/docs/ai-gateway/ @palashgo @thebongy @kathayl @mchenco @kodster28 @cloudflare/pcx-technical-writing
 /src/content/docs/workers-ai/ @rita3ko @craigsdennis @markdembo @mchenco @kodster28 @cloudflare/pcx-technical-writing
 /src/content/docs/vectorize/ @elithrar @vy-ton @sejoker @mchenco @cloudflare/pcx-technical-writing
 /src/content/partials/vectorize/ @elithrar @mchenco @sejoker @cloudflare/pcx-technical-writing
@@ -213,8 +213,9 @@
 
 # Support
 
-/src/content/docs/support/ @zeinjaber @TracyCloudflare @ngayerie @cloudflare/pcx-technical-writing @cloudflare/customer-support
-/src/assets/images/support/ @zeinjaber @TracyCloudflare @ngayerie @cloudflare/pcx-technical-writing @cloudflare/customer-support
+/src/content/docs/support/ @zeinjaber @ngayerie @cloudflare/pcx-technical-writing @cloudflare/customer-support
+/src/assets/images/support/ @zeinjaber @ngayerie @cloudflare/pcx-technical-writing @cloudflare/customer-support
+/src/content/docs/billing/ @zeinjaber @ngayerie @simon-says @cloudflare/customer-support @cloudflare/pcx-technical-writing
 
 # Turnstile
 
