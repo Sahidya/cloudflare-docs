@@ -1,0 +1,19 @@
+src/content/docs/logs/logpush/index.mdx
+  s_ff1a10aa991dcb::t_5a1d4b487bd60f 50-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "d7186afea5c381fc1724abfecde273e146332d60",
+  "prompts": {},
+  "sessions": {
+    "s_ff1a10aa991dcb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e7ccdd3abffeYKUXg6F5DfjUb2",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "sahidya <sahidya@cloudflare.com>"
+    }
+  }
+}
